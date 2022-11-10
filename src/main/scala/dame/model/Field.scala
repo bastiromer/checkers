@@ -7,5 +7,5 @@ class Field(size: Int) {
   override def toString = printField()
 
   def horizontal(a: Int): String = (("+" + "-" * 3) * a) + "+\n"
-  def vertical(a: Int): String = (("|" + " " * 3) * a) + "|\n"
+  def vertical(a: Int): String = (("|" + " " * 3 ) * a) + "|\n"
 }

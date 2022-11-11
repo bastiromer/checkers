@@ -6,33 +6,51 @@ import model.Stone
 import model.Field
 import controller.Controller
 
+import util.Observer
+
 import scala.io.StdIn.readInt
 import scala.io.StdIn.readLine
 import scala.collection.immutable._
 import scala.util.matching.Regex
 
-class  TUI:
+class  TUI(controller: Controller) extends Observer:
 
-    //controller.add(this)
-    val controll = Controller()
+    val moveinput: Regex = "[A-Ha-h][1-8][A-Ha-h][1-8]".r
+    val errorRegex: Regex = ".*".r
+
     val size = 8
-    //val inputmove: Regex = "([A-Ha-h])[1-8]([A-Ha-h])[1-8]".r
-    val inputmove: Regex = "[1-8]{4}".r
-
-    //val v = Vector[(inputmove,)]
-    //def main(args: Array[String]): Unit =
-    //    run()
 
     def run() =
-        val field = Field(size)
-        println(field.toString())
-        val input = readLine() //1122
-        if(inputmove.matches(input))
-            analyseInput(input)
-        print("false input")
+        println(controller.field.toString)
+        gameLoop()
+
+    override def update = println(controller.field.toString)
 
 
-    def analyseInput(in: String): Unit = 
-        val inputArray = in.toCharArray() //[1,1,2,2]
-        println(controll.checkMove(inputArray))
+    def gameLoop(): Unit =
+        readLine match
+            case "exit"     => println("Goodbye")
+                                System.exit(0)
+            case "move"     => println(getInput())
+            case _          => println("false input")
+        gameLoop()
 
+
+    def getInput(): String =
+        println("please enter yeur move")
+        val input = readLine()
+        processInput(input)
+        
+    
+    
+    def processInput(in: String): String = 
+
+        val e = controller.errorHandler(_)
+        val m = controller.checkMove(_)
+
+        val v: Vector[(Regex,(Array[Char] => String))] = Vector((errorRegex,e),(moveinput,m))
+
+        val x = v.filter(k => in.matches(k._1.toString())).last
+        val y = x._2
+
+        y(in.toCharArray())

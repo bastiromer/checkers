@@ -8,7 +8,6 @@ import controller.Controller
 
 import util.Observer
 
-import scala.io.StdIn.readInt
 import scala.io.StdIn.readLine
 import scala.collection.immutable._
 import scala.util.matching.Regex
@@ -18,7 +17,6 @@ class  TUI(controller: Controller) extends Observer:
     val moveinput: Regex = "[A-Ha-h][1-8][A-Ha-h][1-8]".r
     val errorRegex: Regex = ".*".r
 
-    val size = 8
 
     def run() =
         println(controller.field.toString)
@@ -37,11 +35,10 @@ class  TUI(controller: Controller) extends Observer:
 
 
     def getInput(): String =
-        println("please enter yeur move")
+        println("please enter your move")
         val input = readLine()
         processInput(input)
         
-    
     
     def processInput(in: String): String = 
 

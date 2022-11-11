@@ -11,9 +11,17 @@ class FieldSpec extends AnyWordSpec {
     val field3 = Field(3)
 
     "have a field in form of" in {
-      field1.toString() should be("+---+\n|   |\n+---+")
-      field2.toString() should be("+---+---+\n|   |   |\n+---+---+---+\n|   |   |\n+---+---+---+")
-      field3.toString() should be(("+---+---+\n|   |   |\n")*3 + "+---+---+---+")
+      field1.toString() should be("+---+\n" +
+                                  "|   |\n" +
+                                  "+---+\n")
+
+      field2.toString() should be("+---+---+\n" +
+                                  "|   |   |\n" +
+                                  "+---+---+\n" +
+                                  "|   |   |\n" +
+                                  "+---+---+\n")
+
+      field3.toString() should be(("+---+---+---+\n|   |   |   |\n")*3 + "+---+---+---+\n")
     }
     "have a scalable bar" in {
       field1.horizontal(2) should be("+---+---+\n")

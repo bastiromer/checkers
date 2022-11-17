@@ -1,7 +1,7 @@
 package dame
 package controller
 
-import dame.model.{Field,Move,Cell,Stone}
+import dame.model.{Field,Move,Stone}
 import util.Observable
 
 
@@ -14,15 +14,15 @@ class Controller(var field: Field) extends Observable:
 
         if((x2 - x1) == 1 | (x2 - x1) == -1)
             if((y2 - y1) == 1 | (y2 - y1) == -1)
-                notifyObservers
                 doMove(x1, y1, x2, y2)
+                "Stone successfully moved"
             else
                 "false move"
         else
             "false move"
 
-    def doMove(x1: Int, y1: Int, x2: Int, y2: Int): String =
-        "Stone successfully moved"
+    def doMove(x1: Int, y1: Int, x2: Int, y2: Int): Unit =
+        notifyObservers
 
 
     def errorHandler(in: Array[Char]): String =

@@ -1,11 +1,8 @@
 package dame
 package aview
 
-import model.Move
-import model.Stone
-import model.Field
-import controller.Controller
 
+import controller.Controller
 import util.Observer
 
 import scala.io.StdIn.readLine

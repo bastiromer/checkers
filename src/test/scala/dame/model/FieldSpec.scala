@@ -1,4 +1,4 @@
-package dame
+/*package dame
 package model
 
 import org.scalatest.wordspec.AnyWordSpec
@@ -35,4 +35,4 @@ class FieldSpec extends AnyWordSpec {
       field1.vertical(4) should be("|   |   |   |   |\n")
     }
   }
-}
+}*/

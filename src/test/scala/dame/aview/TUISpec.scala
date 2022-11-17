@@ -1,7 +1,7 @@
-package dame
-package aview
+//package dame
+//package aview
 
-import model.Move
+/*import model.Move
 import model.Stone
 import model.Field
 import controller.Controller
@@ -12,10 +12,16 @@ import org.scalatest.matchers.should.Matchers._
 import org.scalatest.wordspec.AnyWordSpec
 
 
-class TUISpec extends AnyWordSpec :
+//class TUISpec extends AnyWordSpec :
   
     "The TUI" should {
-        val tui = TUI(Controller(new Field(8)))
+        val tui = TUI(Controller(Field(8)))
+        val tui2 = TUI(Controller(Field(1)))
+        "print the field" in {
+            tui2.update should be("+---+\n" +
+                                  "|   |\n" +
+                                  "+---+\n")
+        }
         "call the method getInput" in {
             val in = new ByteArrayInputStream(("a1b2").getBytes)
             Console.withIn(in)  {
@@ -41,3 +47,4 @@ class TUISpec extends AnyWordSpec :
         }
 
     }
+*/

@@ -1,3 +1,3 @@
-[![Build Status](https://app.travis-ci.com/bastiromer/checkers.svg?branch=master)](https://app.travis-ci.com/bastiromer/checkers)
+[![Coverage Status](https://coveralls.io/repos/github/bastiromer/checkers/badge.svg?branch=master)](https://coveralls.io/github/bastiromer/checkers?branch=master)
 
 # checkers
